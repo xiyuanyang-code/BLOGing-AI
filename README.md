@@ -54,6 +54,12 @@ Then you can see the webpages like this:
 
 Then you can run this locally in your computer, enjoy RAG now!
 
+A demo:
+
+![demo2](https://s1.imagehub.cc/images/2025/03/29/b736eb5e2afe5029a2c2f1b4011605ca.png)
+
+You can freely search send queries regarding the blog passage and get answers.
+
 ### Run `Streamlit` demo online
 
 I will finish it later...
