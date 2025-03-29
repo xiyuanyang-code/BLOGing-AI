@@ -1,6 +1,21 @@
-beautifulsoup4==4.12.2
-langchain==0.0.309
-openai==0.28.1
-chromadb==0.4.10
-streamlit==1.23.1
-requests==2.31.0
+# Streamlit for UI
+streamlit
+
+# LangChain and related modules
+langchain
+langchain-community
+langchain-openai
+
+# OpenAI integration
+openai
+
+# BeautifulSoup for HTML parsing
+beautifulsoup4
+
+# Dotenv for environment variables
+python-dotenv
+
+# ChromaDB for vector storage
+chromadb
+# Other dependencies
+requests
