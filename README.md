@@ -1,5 +1,7 @@
 # RAG blog content retrieval
 
+> [!IMPORTANT] To be refactored!!!
+
 ## 😊Introduction
 
 This is a simple application for blog content retrieval implemented using RAG as the core technology.
