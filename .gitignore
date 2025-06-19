@@ -1,3 +1,4 @@
 /.history/
 .env
 todolist.md
+src/backend/__pycache__/

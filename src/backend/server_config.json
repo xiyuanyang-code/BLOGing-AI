@@ -1,0 +1,31 @@
+{
+    "mcp": {
+        "servers": {
+            "fetch": {
+                "command": "uvx",
+                "args": [
+                    "mcp-server-fetch"
+                ]
+            },
+            "filesystem": {
+                "command": "npx",
+                "args": [
+                    "-y",
+                    "@modelcontextprotocol/server-filesystem",
+                    "${workspaceFolder}"
+                ]
+            },
+            "git": {
+                "command": "docker",
+                "args": [
+                    "run",
+                    "--rm",
+                    "-i",
+                    "--mount",
+                    "type=bind,src=${workspaceFolder},dst=/workspace",
+                    "mcp/git"
+                ]
+            }
+        }
+    }
+}

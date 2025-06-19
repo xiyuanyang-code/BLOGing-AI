@@ -64,3 +64,31 @@ button:hover {
     color: #333;
     word-break: break-all;
 }
+
+#web-window{
+    align-items: center;
+    width: 42vw;
+    height: 60vh;
+}
+
+#ai-window{
+    align-items: center;
+    width: 42vw;
+    height: 60vh;
+}
+
+.small-container{
+    background-color: #fff;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    max-width: none;
+    box-sizing: border-box;
+    overflow: auto;
+    margin: auto;
+}
+
+.click-to-send{
+    align-items: center;
+}
