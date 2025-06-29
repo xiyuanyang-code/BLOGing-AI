@@ -1,49 +1,55 @@
-// url judgement
+// URL validation function
 function isValidUrl(url) {
     const pattern = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
     return pattern.test(url);
 }
 
-const sending_status = document.getElementById("status-sending")
+
 // ! backend port: 5000
-const backendApiUrl = 'http://127.0.0.1:5000/api/process_text'
+const sendingStatus = document.getElementById("status-sending");
+const backendApiUrl = 'http://127.0.0.1:5000/api/process_text';
 
 document.getElementById("click-to-send").onclick = async function() {
     const responseArea = document.getElementById("response-area");
-    const input_url = document.getElementById("user-input").value
-    if (input_url == "") {
-        window.alert(`WARNING! Empty input.`)
-        return
+    const inputUrl = document.getElementById("user-input").value.trim();
+    const webWindow = document.getElementById("webshow");
+
+    // Clear previous status and response
+    sendingStatus.textContent = "";
+    responseArea.textContent = "";
+
+    // Input validation
+    if (!inputUrl) {
+        window.alert("WARNING! Empty input.");
+        return;
+    }
+    if (!isValidUrl(inputUrl)) {
+        window.alert(`Warning! ${inputUrl} is not a valid url!`);
+        return;
     }
 
-    if (isValidUrl(input_url) == false) {
-        window.alert(`Warning! ${input_url} is not a valid url!`)
-        return
-    }
-    // test passed
+    // Show the URL in the iframe
+    webWindow.src = inputUrl;
 
-    // sending urls to the backend
+    // Send URL to backend
+    sendingStatus.textContent = "Sending URL to the AI backend...";
     try {
-        // sending with fetch api
         const response = await fetch(backendApiUrl, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({url: input_url})
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({url: inputUrl})
         });
 
         if (!response.ok) {
             throw new Error(`HTTP Error! Code: ${response.status}`);
         }
-        sending_status.textContent = `Sending urls to the AI hiding behind...`
 
         const data = await response.json();
         responseArea.textContent = JSON.stringify(data, null, 2);
-        sending_status.textContent = "Successfully received response!";
-
+        sendingStatus.textContent = "Successfully received response!";
     } catch (error) {
-        console.error('Error: ', error);
-        responseArea.textContent = `Error: ${error.message}.`;
+        console.error('Error:', error);
+        responseArea.textContent = `Error: ${error.message}`;
+        sendingStatus.textContent = "Failed to get response from backend.";
     }
-}
+};

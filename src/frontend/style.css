@@ -65,16 +65,67 @@ button:hover {
     word-break: break-all;
 }
 
-#web-window{
+/* .web-window{
     align-items: center;
     width: 42vw;
     height: 60vh;
+} */
+
+/* .web-window {
+    align-items: center;
+    width: 38vw;
+    height: 60vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.541);
+    padding: 24px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+} */
+
+.small-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 0;
+    justify-content: space-between;
+    align-items: stretch;
 }
 
-#ai-window{
+.web-window {
     align-items: center;
-    width: 42vw;
+    width: 100%; /* 由父级 .left-window/.right-window 控制具体宽度 */
     height: 60vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.541);
+    padding: 24px;
+    margin: 0 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.left-window {
+    width: 60%;
+}
+
+.right-window {
+    width: 40%;
 }
 
 .small-container{

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog RAG</title>
+    <title>BlOGing-AI</title>
 
     <!-- link several files -->
     <link rel="stylesheet" href="style.css">
@@ -12,20 +12,24 @@
 
 <body>
     <div class="container">
-        <h1 class="header">Welcome to Blog RAG!</h1>
+        <h1 class="header">Welcome to BlOGing-AI!</h1>
 
         <h2>Introduction</h2>
         <p id="description"></p>
         <!-- todo finish description -->
+
+
         <p>Enter the url:</p>
         <input type="text" id="user-input" placeholder="Enter Blog Url" value="https://xiyuanyang-code.github.io">
+        <br>
+        <button id="click-to-send">Sending to AI hiding behind</button><br>
 
         <br><br>
         <div class="small-container">
-        <iframe src="https://xiyuanyang-code.github.io" id="web-window"></iframe>
-        <iframe src="https://xiyuanyang-code.github.io" id="ai-window"></iframe>
-        </div><br><br>
-        <button id="click-to-send">Sending to AI hiding behind</button><br>
+            <iframe src="https://xiyuanyang-code.github.io" class="web-window left-window" id="webshow"></iframe>
+            <iframe src="http://127.0.0.1:5000/markdown" class="web-window right-window" id="markdown-frame"></iframe>
+        </div><br>
+
         <p id="status-sending"></p>
 
         <h3>Response</h3>
@@ -35,6 +39,16 @@
     </div>
 
     <script src="index.js"></script>
+    <script>
+        // Auto-refresh markdown iframe every 3 seconds
+        setInterval(function () {
+            const iframe = document.getElementById('markdown-frame');
+            if (iframe) {
+                // Force reload by changing src (add a dummy query to avoid cache)
+                iframe.src = "http://127.0.0.1:5000/markdown?ts=" + Date.now();
+            }
+        }, 3000);
+    </script>
 </body>
 
 </html>

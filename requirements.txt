@@ -4,3 +4,4 @@ dotenv
 flask
 flask_cors
 argparse
+markdown

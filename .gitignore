@@ -2,3 +2,6 @@
 .env
 todolist.md
 src/backend/__pycache__/
+
+**.log
+/log/
