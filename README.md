@@ -33,6 +33,6 @@ bash deploy.sh
 bash undeploy.sh
 ```
 
-Then visit http://127.0.0.1:5000 in your browser and enjoy your learning trip!
+Then visit http://127.0.0.1:8000 in your browser and enjoy your learning trip!
 
 ## Usage
