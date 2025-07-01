@@ -36,3 +36,22 @@ bash undeploy.sh
 Then visit http://127.0.0.1:8000 in your browser and enjoy your learning trip!
 
 ## Usage
+
+
+## Todo List
+
+- Refactor the bash scripts to cleanly kill processes occupying the ports.
+
+- Complete the MCP content and AI summarization features
+
+    - fetch: Automatically crawl blog content
+
+    - summarize: Let AI generate summaries
+
+    - check: Check for grammatical errors and logical inconsistencies
+
+    - mark: Structured annotation
+
+    - extension: MCP external tools for arXiv and Wikipedia
+
+- Make the

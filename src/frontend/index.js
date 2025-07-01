@@ -53,3 +53,17 @@ document.getElementById("click-to-send").onclick = async function() {
         sendingStatus.textContent = "Failed to get response from backend.";
     }
 };
+
+const iframe = document.getElementById('myIframe');
+let lastUrl = '';
+setInterval(function() {
+  try {
+    const currentUrl = iframe.contentWindow.location.href;
+    if (currentUrl !== lastUrl) {
+      lastUrl = currentUrl;
+      console.log('iframe URL changed to:', currentUrl);
+    }
+  } catch (e) {
+    console.log('Cannot access iframe URL due to cross-origin policy');
+  }
+}, 1000);
